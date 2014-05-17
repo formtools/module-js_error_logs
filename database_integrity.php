@@ -46,3 +46,21 @@ $STRUCTURE["tables"]["module_js_error_logs"] = array(
     "Default" => ""
   )
 );
+
+$HOOKS = array();
+$HOOKS["1.0.3"] = array(
+  array(
+    "hook_type"       => "template",
+    "action_location" => "modules_head_top",
+    "function_name"   => "",
+    "hook_function"   => "jsel_include_js",
+    "priority"        => "50"
+  ),
+  array(
+    "hook_type"       => "template",
+    "action_location" => "head_top",
+    "function_name"   => "",
+    "hook_function"   => "jsel_include_js",
+    "priority"        => "50"
+  )
+);
