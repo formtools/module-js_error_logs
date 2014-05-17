@@ -39,7 +39,7 @@ function sendData(url, params) {
     }
 
     req.send(params);
-    return req.responseText; // error in IE 8...
+    return req.responseText;
 }
 
 function createXMLHTTPObject() {
