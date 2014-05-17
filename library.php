@@ -20,7 +20,7 @@ function js_error_logs__install($module_id)
       url mediumtext NULL,
       line varchar(7) NULL,
       stacktrace mediumtext NULL
-      ) TYPE=MYISAM DEFAULT CHARSET=utf8
+      ) DEFAULT CHARSET=utf8
   ");
 
   if (!$query)
