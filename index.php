@@ -1,22 +1,24 @@
 <?php
 
 require_once("../../global/library.php");
-ft_init_module_page();
-$request = array_merge($_POST, $_GET);
 
-if (isset($request["clear"]))
-{
-	jsel_clear_logs();
+use FormTools\General;
+use FormTools\Modules;
+
+$module = Modules::initModulePage("admin");
+
+if (isset($request["clear"])) {
+	$module->clearLogs();
 	$_GET["page"] = 1;
 }
 
-$page = ft_load_module_field("js_error_logs", "page", "page", 1);
+$page = Modules::loadModuleField("js_error_logs", "page", "page", 1);
+$results = $module->getErrorLogs($page);
 
-$results = jsel_get_error_logs($page);
+$page_vars = array(
+    "lines"       => $results["results"],
+    "num_results" => $results["num_results"],
+    "pagination"  => General::getPageNav($results["num_results"], 20, $page)
+);
 
-$page_vars = array();
-$page_vars["lines"]       = $results["results"];
-$page_vars["num_results"] = $results["num_results"];
-$page_vars["pagination"]  = ft_get_page_nav($results["num_results"], 20, $page);
-
-ft_display_module_page("templates/index.tpl", $page_vars);
+$module->displayPage("templates/index.tpl", $page_vars);

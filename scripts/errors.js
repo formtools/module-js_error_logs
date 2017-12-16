@@ -10,11 +10,11 @@ var writeError = function(msg, url, linenumber){
     var params = "url=" + url + "&msg=" + msg + "&line=" + linenumber;
     sendData(g.root_url + "/modules/js_error_logs/code/logs.php", encodeURI(params));
     return false;
-}
+};
 
 window.onerror = function(msg, url, line){
     return writeError(msg, url, line);
-}
+};
 
 function sendData(url, params) {
     if(typeof params == 'undefined')
