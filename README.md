@@ -1,4 +1,4 @@
-## module-js_error_logs
+## JS Error Logs module
 
 This simple module was developed to help keep tabs on client-side errors (javascript errors) that occur within the Form Tools interface. In 2.1.0, we re-wrote all the javascript to use jQuery and jQuery UI instead of the Prototype framework. During development, we created this module to locate problems.
 
@@ -10,9 +10,12 @@ For developers that are curious, the module works by attaching a snippet of Ajax
 
 ### Documentation
 
-[http://modules.formtools.org/js_error_logs/](http://modules.formtools.org/js_error_logs/)
+- [https://docs.formtools.org/modules/js_error_logs/](https://docs.formtools.org/modules/js_error_logs/)
 
-### Form Tools Extensions
 
-For further information about Form Tools extensions, check out the following link:
-[http://www.formtools.org/extensions.php](http://www.formtools.org/extensions.php)
+### Other Links
+
+- [Available Form Tools modules](https://modules.formtools.org/)
+- [About Form Tools modules](https://docs.formtools.org/userdoc/modules/) 
+- [Installation instructions](https://docs.formtools.org/userdoc/modules/installing/)
+- [Upgrading](https://docs.formtools.org/userdoc/modules/upgrading/)
