@@ -17,16 +17,16 @@ window.onerror = function(msg, url, line){
 };
 
 function sendData(url, params) {
-    if(typeof params == 'undefined')
+    if (typeof params == 'undefined') {
         params = '';
+    }
     var req = createXMLHTTPObject();
-    if (!req)
+    if (!req) {
         return;
+    }
 
     req.open("POST", url, true);
     req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    req.setRequestHeader("Content-length", params.length);
-    req.setRequestHeader("Connection", "close");
 
     //Just for illustration purposes, display the errors on the page, in addition to logging them
     req.onreadystatechange = function() {

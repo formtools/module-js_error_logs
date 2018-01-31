@@ -17,8 +17,8 @@ class Module extends FormToolsModule
     protected $author = "Ben Keen";
     protected $authorEmail = "ben.keen@gmail.com";
     protected $authorLink = "https://formtools.org";
-    protected $version = "2.0.1";
-    protected $date = "2017-12-20";
+    protected $version = "2.0.2";
+    protected $date = "2018-01-31";
     protected $originLanguage = "en_us";
 
     protected $nav = array(
@@ -50,8 +50,7 @@ class Module extends FormToolsModule
             return array(false, "There was a problem installing the module: " . $e->getMessage());
         }
 
-        Hooks::registerHook("template", "js_error_logs", "modules_head_top", "", "includeJs");
-        Hooks::registerHook("template", "js_error_logs", "head_top", "", "includeJs");
+        $this->resetHooks();
 
         return array(true, "");
     }
@@ -68,6 +67,20 @@ class Module extends FormToolsModule
 
         }
         return array(true, "");
+    }
+
+
+    public function upgrade($module_id, $old_module_version)
+    {
+        $this->resetHooks();
+    }
+
+
+    public function resetHooks()
+    {
+        $this->clearHooks();
+        Hooks::registerHook("template", "js_error_logs", "modules_head_top", "", "includeJs");
+        Hooks::registerHook("template", "js_error_logs", "head_top", "", "includeJs");
     }
 
 
